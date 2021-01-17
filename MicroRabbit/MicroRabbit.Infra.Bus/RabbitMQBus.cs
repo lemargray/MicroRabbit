@@ -31,9 +31,9 @@ namespace MicroRabbit.Infra.Bus
             return _mediator.Send(command);
         }
 
-        public void Publish<T>(T @event) where T : EventArgs
+        public void Publish<T>(T @event) where T : Event
         {
-            var factory = new ConnectionFactory() { HostName = "locahost" };
+            var factory = new ConnectionFactory() { HostName = "localhost" };
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
             {
